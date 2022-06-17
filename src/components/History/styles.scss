@@ -1,69 +1,14 @@
-* {
-  margin-top: 7px;
-}
-.buy-form {
-  display: flex;
-  justify-content: center;
-  outline: none;
-  h2 {
-    text-align: center;
-    margin-top: 60px;
-    color: rgba(58, 138, 132);
-  }
-  .form-group {
-    label {
-      margin-right: 20px;
-    }
-    input {
-      outline: none;
-      color: rgba(58, 138, 132);
-      &::-webkit-input-placeholder {
-        margin-left: 10px;
-        color: rgb(45, 109, 104);
+.history {
+  margin: 100px 0;
+  .history-table {
+    display: flex;
+    justify-content: space-around;
+    .colum {
+      .title {
+        p {
+          font-weight: bold;
+        }
       }
     }
-    select {
-      outline: none;
-      color: rgba(58, 138, 132);
-    }
-    .deposit {
-      width: 172px;
-    }
-    .coin {
-      width: 180px;
-      margin-left: 35px;
-      height: 23px;
-    }
-    .current-price {
-      margin-left: 56px;
-      width: 172px;
-    }
-    .liquidation-price {
-      margin-left: 29px;
-      width: 172px;
-    }
-    .expire {
-      margin-left: 18px;
-      width: 175px;
-    }
-  }
-  .btn-buy {
-    margin-left: 90px;
-    width: 130px;
-    height: 35px;
-    font-size: 14px;
-
-    margin-top: 30px;
-    font-weight: 800;
-    color: #fff;
-    background-color: rgba(58, 138, 132);
-    outline: none;
-    border: none;
-    border-radius: 20px;
-    &:hover {
-      background-color: rgba(58, 138, 133, 0.719);
-      transition: 0.3s all;
-    }
-    cursor: pointer;
   }
 }

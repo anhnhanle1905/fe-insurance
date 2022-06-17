@@ -77,18 +77,8 @@ function BuyForm(props) {
     }
   };
 
-  const getInsurance = async () => {
-    const insurances = await INSURANCE_CONTRACT.callStatic.getAllInsurance();
-    let reversed = insurances;
-    let nhan2 = reversed.reverse();
-    console.log(nhan2);
-  };
-
   const formatDate = (_date) => {
-    // console.log(_date);
-
     let newDate = new Date(_date);
-    // console.log(newDate.getTime() / 1000);
     return newDate.getTime() / 1000;
   };
   const formatNum = (_num) => {
@@ -184,9 +174,9 @@ function BuyForm(props) {
           BUY
         </button>
 
-        <button className="btn-buy" onClick={getInsurance}>
+        {/* <button className="btn-buy" onClick={getInsurance}>
           BUTTON TEST
-        </button>
+        </button> */}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 
 import { ethers } from "ethers";
 import BuyForm from "./components/BuyForm/index";
+import History from "./components/History/index";
 import { getCurrentWalletConnected } from "./utils/interact";
 import "./App.scss";
 
@@ -12,10 +13,26 @@ function App() {
   const [accountBalance, setAccountBalance] = useState("");
 
   const [isConnected, setIsConnected] = useState(false);
+  const [isChangeWallet, setIsChangeWallet] = useState(false);
 
   const { ethereum } = window;
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+  function addWalletListener() {
+    if (window.ethereum) {
+      window.ethereum.on("accountsChanged", (accounts) => {
+        if (accounts.length > 0) {
+          setAccountAddress(accounts[0]);
+          // setIsConnected(false);
+          connectWallet();
+          setIsChangeWallet(true);
+        } else {
+          setAccountAddress("");
+        }
+      });
+    }
+  }
 
   useEffect(() => {
     const { ethereum } = window;
@@ -26,7 +43,9 @@ function App() {
       sethaveMetamask(true);
     };
     checkMetamaskAvailability();
-  }, []);
+    addWalletListener();
+    setIsChangeWallet(false);
+  }, [accountAddress]);
 
   const connectWallet = async () => {
     try {
@@ -84,6 +103,11 @@ function App() {
       </div>
 
       <BuyForm accountAddress={accountAddress} isConnected={isConnected} />
+      <History
+        accountAddress={accountAddress}
+        isConnected={isConnected}
+        isChangeWallet={isChangeWallet}
+      />
     </div>
   );
 }
