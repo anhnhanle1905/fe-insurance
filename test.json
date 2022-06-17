@@ -1,0 +1,83 @@
+[
+  [
+    { "type": "BigNumber", "hex": "0x01" },
+    "0xFA39a930C7A3D1fEde4E1348FF74c0c5ba93D2B4",
+    { "type": "BigNumber", "hex": "0x016345785d8a0000" },
+    { "type": "BigNumber", "hex": "0x36367b50820d650000" },
+    { "type": "BigNumber", "hex": "0x396aa8b161fefb0000" },
+    "available",
+    { "type": "BigNumber", "hex": "0x62d14a9e" }
+  ],
+  [
+    { "type": "BigNumber", "hex": "0x02" },
+    "0xFc704cB253A586A6539f29705ecC5FAeEa3e2FB3",
+    { "type": "BigNumber", "hex": "0x038d7ea4c68000" },
+    { "type": "BigNumber", "hex": "0x396a61a37d1f790000" },
+    { "type": "BigNumber", "hex": "0x396aa8b161fefb0000" },
+    "available",
+    { "type": "BigNumber", "hex": "0x62b50f2b" }
+  ],
+  [
+    { "type": "BigNumber", "hex": "0x03" },
+    "0xFc704cB253A586A6539f29705ecC5FAeEa3e2FB3",
+    { "type": "BigNumber", "hex": "0x038d7ea4c68000" },
+    { "type": "BigNumber", "hex": "0x3969f70ea5d0360000" },
+    { "type": "BigNumber", "hex": "0x396aa8b161fefb0000" },
+    "available",
+    { "type": "BigNumber", "hex": "0x62bcf82b" }
+  ],
+  [
+    { "type": "BigNumber", "hex": "0x04" },
+    "0xFc704cB253A586A6539f29705ecC5FAeEa3e2FB3",
+    { "type": "BigNumber", "hex": "0x5af3107a4000" },
+    { "type": "BigNumber", "hex": "0x3e9cd84c8c382c0000" },
+    { "type": "BigNumber", "hex": "0x3cfc82e37e9a740000" },
+    "available",
+    { "type": "BigNumber", "hex": "0x62bce780" }
+  ],
+  [
+    { "type": "BigNumber", "hex": "0x05" },
+    "0x94516F310cB119BD79E24eA969b8374025cA9D48",
+    { "type": "BigNumber", "hex": "0x038d7ea4c68000" },
+    { "type": "BigNumber", "hex": "0x423ea81d9107580000" },
+    { "type": "BigNumber", "hex": "0x42e530adfce0080000" },
+    "available",
+    { "type": "BigNumber", "hex": "0x62bce780" }
+  ],
+  [
+    { "type": "BigNumber", "hex": "0x06" },
+    "0x94516F310cB119BD79E24eA969b8374025cA9D48",
+    { "type": "BigNumber", "hex": "0x038d7ea4c68000" },
+    { "type": "BigNumber", "hex": "0x423ea81d9107580000" },
+    { "type": "BigNumber", "hex": "0x42e530adfce0080000" },
+    "available",
+    { "type": "BigNumber", "hex": "0x62bce780" }
+  ],
+  [
+    { "type": "BigNumber", "hex": "0x07" },
+    "0xFc704cB253A586A6539f29705ecC5FAeEa3e2FB3",
+    { "type": "BigNumber", "hex": "0x5af3107a4000" },
+    { "type": "BigNumber", "hex": "0x410d586a20a4c00000" },
+    { "type": "BigNumber", "hex": "0x43c33c193756480000" },
+    "available",
+    { "type": "BigNumber", "hex": "0x62bce780" }
+  ],
+  [
+    { "type": "BigNumber", "hex": "0x08" },
+    "0xFc704cB253A586A6539f29705ecC5FAeEa3e2FB3",
+    { "type": "BigNumber", "hex": "0x5af3107a4000" },
+    { "type": "BigNumber", "hex": "0x410d586a20a4c00000" },
+    { "type": "BigNumber", "hex": "0x43c33c193756480000" },
+    "available",
+    { "type": "BigNumber", "hex": "0x62bce780" }
+  ],
+  [
+    { "type": "BigNumber", "hex": "0x09" },
+    "0xFc704cB253A586A6539f29705ecC5FAeEa3e2FB3",
+    { "type": "BigNumber", "hex": "0x5af3107a4000" },
+    { "type": "BigNumber", "hex": "0x410d586a20a4c00000" },
+    { "type": "BigNumber", "hex": "0x43c33c193756480000" },
+    "available",
+    { "type": "BigNumber", "hex": "0x62bce780" }
+  ]
+]

@@ -1,0 +1,44 @@
+.App {
+  color: rgb(71, 159, 153);
+  h1 {
+    color: rgba(58, 138, 132);
+    text-align: center;
+  }
+  .connect-wallet {
+    text-align: center;
+    .btn-connect {
+      p {
+        text-align: right;
+        font-size: 0.8em;
+        border: 2px solid rgba(58, 138, 132);
+
+        color: rgba(58, 138, 132);
+
+        border-radius: 5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        transition: all ease 0.3s;
+        display: inline-block;
+        padding: 5px 10px;
+      }
+      button.btn {
+        color: rgba(58, 138, 132);
+        font-size: 14px;
+        border: 2px solid rgba(58, 138, 132);
+        background-color: #fff;
+
+        border-radius: 5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        padding: 5px 10px;
+        &:hover {
+          color: rgba(36, 116, 111, 0.548);
+          border: 2px solid rgba(36, 116, 111, 0.548);
+          background-color: #fff;
+          transition: 0.3s all;
+        }
+      }
+    }
+  }
+}
