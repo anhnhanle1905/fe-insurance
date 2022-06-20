@@ -3,7 +3,8 @@ import { React, useState, useEffect } from "react";
 import { ethers } from "ethers";
 import BuyForm from "./components/BuyForm/index";
 import History from "./components/History/index";
-import { getCurrentWalletConnected } from "./utils/interact";
+import axios from "axios";
+
 import "./App.scss";
 
 function App() {
@@ -12,12 +13,15 @@ function App() {
   const [accountAddress, setAccountAddress] = useState("");
   const [accountBalance, setAccountBalance] = useState("");
 
+  const [accessToken, setAccessToken] = useState("");
+
   const [isConnected, setIsConnected] = useState(false);
   const [isChangeWallet, setIsChangeWallet] = useState(false);
 
   const { ethereum } = window;
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
 
   function addWalletListener() {
     if (window.ethereum) {
@@ -26,6 +30,7 @@ function App() {
           setAccountAddress(accounts[0]);
           // setIsConnected(false);
           connectWallet();
+          getSignature();
           setIsChangeWallet(true);
         } else {
           setAccountAddress("");
@@ -60,12 +65,31 @@ function App() {
       let balance = await provider.getBalance(accounts[0]);
       let bal = ethers.utils.formatEther(balance);
 
+      getSignature();
       setAccountAddress(accounts[0]);
-
       setAccountBalance(bal);
       setIsConnected(true);
     } catch (error) {
       setIsConnected(false);
+    }
+  };
+
+  const getSignature = async () => {
+    const message = "Sign this message!";
+    let sign = await signer.signMessage(message);
+    let accountSign = await signer.getAddress();
+    try {
+      // make request to local server
+      const { data } = await axios.post(
+        `http://localhost:4000/api/insurance/user/log-in`,
+        { walletAddress: accountSign, signature: sign },
+        { withCredentials: true }
+      );
+      localStorage.setItem("accessToken", data);
+      setAccessToken(data);
+      console.log(`accessToken: ${localStorage.getItem("accessToken")}`);
+    } catch (error) {
+      console.error(error);
     }
   };
   return (

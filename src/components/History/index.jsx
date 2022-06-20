@@ -9,7 +9,7 @@ History.propTypes = {};
 
 function History(props) {
   const { accountAddress, isConnected, isChangeWallet } = props;
-  console.log(accountAddress);
+
   let user = {
     id: "0",
     info: "",
@@ -42,7 +42,7 @@ function History(props) {
     const newInsurancesDataForAddress = newInsurancesData.filter((val) => {
       return val.info.owner.toLowerCase() == `${accountAddress}`.toLowerCase();
     });
-    console.log(`newInsurancesDataForAddress: ${newInsurancesDataForAddress}`);
+
     setNewInsurances(newInsurancesData); //data for all user
     setNewInsurancesForAddress(newInsurancesDataForAddress); //data for address
   };
