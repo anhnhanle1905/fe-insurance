@@ -78,6 +78,8 @@ function App() {
     const message = "Sign this message!";
     let sign = await signer.signMessage(message);
     let accountSign = await signer.getAddress();
+    console.log(`wallet address: ${accountSign}, 
+    sign: ${sign}`);
     try {
       // make request to local server
       const { data } = await axios.post(

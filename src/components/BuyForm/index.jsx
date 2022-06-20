@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import "./styles.scss";
 import INSURANCE_ABI from "../../abi/INSURANCE_ABI";
 import swal from "sweetalert";
+import axios from "axios";
 /* global BigInt */
 
 BuyForm.propTypes = {};
@@ -28,9 +29,8 @@ function BuyForm(props) {
 
   const buyInsurance = async () => {
     // const volume = await INSURANCE_CONTRACT.callStatic.volume();
-    console.log(`accountAddress: ${accountAddress}`);
-    console.log(input);
     try {
+      // console.log(input);
       const rawTxn = await INSURANCE_CONTRACT.populateTransaction.buyInsurance(
         `${accountAddress}`,
         input._deposit,
@@ -45,7 +45,32 @@ function BuyForm(props) {
       let sendTxn = (await signer).sendTransaction(rawTxn);
 
       let buy = (await sendTxn).wait();
+
       if (buy) {
+        //save data in BE
+        const token = localStorage.getItem("accessToken");
+        // console.log(`token: ${token}`);
+        const res = await axios.post(
+          `http://localhost:4000/api/insurance/buy-insurance`,
+          {
+            owner: `${accountAddress}`,
+            current_price: formatWeiValueToPrice(input._current_price),
+            liquidation_price: formatWeiValueToPrice(input._liquidation_price),
+            deposit: formatWeiValueToPrice(input._deposit),
+            expired: input._expire,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
+        if (res) {
+          console.log(`Save data success at BE`);
+        } else {
+          console.log(`Error save data at BE`);
+        }
         swal(
           "Buy success!" +
             "\n" +
@@ -81,8 +106,11 @@ function BuyForm(props) {
     let newDate = new Date(_date);
     return newDate.getTime() / 1000;
   };
-  const formatNum = (_num) => {
+  const formatPriceToWeiValue = (_num) => {
     return BigInt(_num * 10 ** 18);
+  };
+  const formatWeiValueToPrice = (_num) => {
+    return Number(_num) / 10 ** 18;
   };
 
   return (
@@ -105,7 +133,10 @@ function BuyForm(props) {
             placeholder="Giá trị hợp đồng"
             className="deposit"
             onChange={(e) =>
-              setInput({ ...input, _deposit: formatNum(e.target.value) })
+              setInput({
+                ...input,
+                _deposit: formatPriceToWeiValue(e.target.value),
+              })
             }
           />
           <span className="form-message"></span>
@@ -134,7 +165,10 @@ function BuyForm(props) {
             placeholder="Giá mua"
             className="current-price"
             onChange={(e) =>
-              setInput({ ...input, _current_price: formatNum(e.target.value) })
+              setInput({
+                ...input,
+                _current_price: formatPriceToWeiValue(e.target.value),
+              })
             }
           />
           <span className="form-message"></span>
@@ -150,7 +184,7 @@ function BuyForm(props) {
             onChange={(e) =>
               setInput({
                 ...input,
-                _liquidation_price: formatNum(e.target.value),
+                _liquidation_price: formatPriceToWeiValue(e.target.value),
               })
             }
           />
